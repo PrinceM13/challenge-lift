@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import LiftContextProvider from "./components/context/LiftContext";
+import LiftController from "./components/LiftController";
+import LiftDisplay from "./components/LiftDisplay";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LiftContextProvider>
+      <div className="container" style={{ maxWidth: 600 }}>
+        <div className="d-flex flex-column gap-5 justify-content-center">
+          <LiftDisplay />
+          <LiftController />
+        </div>
+      </div>
+    </LiftContextProvider>
   );
 }
 
