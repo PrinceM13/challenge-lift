@@ -1,10 +1,10 @@
 import { useLift } from "./context/LiftContext";
 
 export default function LiftDisplay() {
-    const {currentFloor} = useLift();
+    const { lift } = useLift();
     return (
         <div className="d-flex justify-content-center">
-            <h1>{currentFloor}</h1>
+            <h1>{lift.currentFloor}</h1>
         </div>
     );
 }

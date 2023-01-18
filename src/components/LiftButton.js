@@ -1,12 +1,11 @@
 import { useLift } from "./context/LiftContext";
 
 export default function LiftButton({ children }) {
-    const { setCurrentButton } = useLift();
-    const handleButton = (e) => {
-        // console.log(e.target.value);
-        setCurrentButton(e.target.value);
-    }
+    const { lift, handleButtonPress } = useLift();
+    const handleButton = (e) => handleButtonPress(e.target.value);
+    const isActive = lift.floorWaitingList.includes(String(children));
+    const color = isActive ? 'danger' : 'light';
     return (
-        <button className="btn btn-outline-light" onClick={handleButton} value={children}>{children}</button>
+        <button className={`btn btn-outline-${color}`} onClick={handleButton} value={children}>{children}</button>
     );
 }
